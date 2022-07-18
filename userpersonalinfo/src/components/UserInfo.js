@@ -12,6 +12,10 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
+const fontColor = {
+  style: { color: "white", }
+}
+
 function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
@@ -22,7 +26,16 @@ function Copyright(props) {
   );
 }
 
-const theme = createTheme();
+const theme = createTheme({
+  palette: {
+    white: {
+      main: "white",
+    },
+    secondary: {
+      main: '#286090',
+    },
+  },
+});
 
 export default function SignUp() {
   const handleSubmit = (event) => {
@@ -40,83 +53,97 @@ export default function SignUp() {
         <CssBaseline />
         <Box
           sx={{
-            marginTop: 8,
+            marginTop: 0,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+          <Avatar sx={{ m: 1, bgcolor: 'secondary.main', width: 200, height: 200}}>
             <PersonRoundedIcon />
           </Avatar>
-          <Typography component="h1" variant="h5">
+          <Typography component="h1" variant="h4" >
             Patient Personal Information
           </Typography>
-          <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
+          <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 0 }}>
             <Grid container spacing={2}>
-              <Grid item xs={12} sm={6}>
+              <Grid item xs={12}>
+                <Typography align="left" variant="subtitle1">
+                  Username
+                </Typography>
                 <TextField
-                  autoComplete="given-name"
-                  name="firstName"
-                  required
+                  name="username"
                   fullWidth
-                  id="firstName"
-                  label="First Name"
-                  autoFocus
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  required
-                  fullWidth
-                  id="lastName"
-                  label="Last Name"
-                  name="lastName"
-                  autoComplete="family-name"
+                  id="username"
+                  label="@JohnDoe"
+                  inputProps={fontColor}
+                  disabled
                 />
               </Grid>
               <Grid item xs={12}>
+                <Typography align="left" variant="subtitle1">
+                  Email
+                </Typography>
                 <TextField
-                  required
+                  name="email"
                   fullWidth
                   id="email"
-                  label="Email Address"
-                  name="email"
-                  autoComplete="email"
+                  label="JohnDoe1985@gmail.com"
+                  disabled
                 />
               </Grid>
               <Grid item xs={12}>
+              <Typography align="left" variant="subtitle1">
+                  Full Name
+                </Typography>
                 <TextField
-                  required
+                  name="fullname"
                   fullWidth
-                  name="password"
-                  label="Password"
-                  type="password"
-                  id="password"
-                  autoComplete="new-password"
+                  id="fullname"
+                  label="John Doe"
+                  disabled
+                />
+              </Grid>
+              <Grid item xs={12}>
+              <Typography align="left" variant="subtitle1">
+                  Phone Number
+                </Typography>
+                <TextField
+                  name="phone number"
+                  fullWidth
+                  id="phone number"
+                  label="555-555-5555"
+                  disabled
                 />
               </Grid>
             </Grid>
             <Button
+              color="white"
               type="submit"
-              fullWidth
+              halfWidth
               variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+              sx={{ mt: 2, mb: 2 }}
             >
-              Back to My Account
+              <Typography color="secondary">
+                Back to My Account
+              </Typography>
             </Button>
+            <br></br>
             <Button
+              color="white"
               type="submit"
-              fullWidth
+              halfWidth
               variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+              sx={{ mt: 0, mb: 2 }}
             >
-              Back to Home
+              <Typography color="secondary">
+                Back to Home
+              </Typography>
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
                 <Link href="#" variant="body2">
-                  Already have an account? Sign in
+                  edit
                 </Link>
               </Grid>
             </Grid>
