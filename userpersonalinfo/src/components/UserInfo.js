@@ -11,19 +11,17 @@ import PersonRoundedIcon from '@mui/icons-material/PersonRounded';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+/*import EditUserInfo from './components/EditUserInfo';*/
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
+
+/*<Route path="./components/EditUserInfo" component={EditUserInfo} /> */
 
 const fontColor = {
   style: { color: "white", }
-}
-
-function Copyright(props) {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {}
-      {}
-      {}
-    </Typography>
-  );
 }
 
 const theme = createTheme({
@@ -59,10 +57,22 @@ export default function SignUp() {
             alignItems: 'center',
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main', width: 200, height: 200}}>
+
+<Box
+        component="img"
+        sx={{
+          height: 50,
+          width: 250,
+          mb: 1,
+        }}
+        alt="Christiana Care Logo"
+        src="https://i.ibb.co/fSPDwqF/christianacarelogo.png"
+      />
+
+          <Avatar sx={{ m: 1, bgcolor: 'secondary.main', width: 180, height: 180}}>
             <PersonRoundedIcon />
           </Avatar>
-          <Typography component="h1" variant="h4" >
+          <Typography component="h1" variant="h4" style={{fontWeight: 'bold'}}>
             Patient Personal Information
           </Typography>
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 0 }}>
@@ -149,7 +159,6 @@ export default function SignUp() {
             </Grid>
           </Box>
         </Box>
-        <Copyright sx={{ mt: 5 }} />
       </Container>
     </ThemeProvider>
   );

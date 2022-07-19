@@ -27,4 +27,6 @@ ideal changes:
 *change to make height flexible
 *add option to change text size
 *high contrast mode
+*can probably make it so the care giver user page uses the same file 
+and you just store what type of account it is in a database
 */
